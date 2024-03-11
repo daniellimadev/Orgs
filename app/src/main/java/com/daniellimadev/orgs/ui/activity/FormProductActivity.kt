@@ -3,10 +3,10 @@ package com.daniellimadev.orgs.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import com.daniellimadev.orgs.R
+import com.daniellimadev.orgs.dao.ProductsDao
 import com.daniellimadev.orgs.model.Product
 import java.math.BigDecimal
 
@@ -37,6 +37,9 @@ class FormProductActivity : AppCompatActivity(R.layout.activity_form_product) {
 
 
             Log.i("FormProduct", "onCreate: $productNew")
+            val dao = ProductsDao()
+            dao.add(productNew)
+            Log.i("FormProduct", "onCreate: ${dao.searchAll()}")
         }
     }
 
